@@ -41,5 +41,3 @@ export const transfer = async () => {
             amount.value = '';
         })
 }
-
-document.getElementById('transfer-button').addEventListener('click', transfer)

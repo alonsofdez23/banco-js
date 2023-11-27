@@ -1,6 +1,6 @@
 import { accountMask, formatCurrency, formatDateShort } from "./utils.js";
 
-async function getTransaction() {
+ export async function getTransaction() {
     const res = await fetch("http://localhost:3000/transactions");
     const data = await res.json();
 
@@ -45,7 +45,7 @@ function createTransactionCard(transaction, parent) {
         transactionSection.appendChild(transactionHeader);
         transactionSection.appendChild(transactionFooter);
         transactionItem.appendChild(transactionSection);
-        
+
         parent.appendChild(transactionItem);
 }
 
