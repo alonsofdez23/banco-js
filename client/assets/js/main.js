@@ -12,6 +12,7 @@ document.getElementById('transfer-button').addEventListener('click', () => {
     spinner.classList.remove('hidden');
     setTimeout(async () => {
         await transfer();
+        await loadData();
         spinner.classList.add('hidden');
     }, 1000);
 });
