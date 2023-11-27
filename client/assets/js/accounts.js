@@ -1,3 +1,5 @@
+import { accountFormat, formatCurrency, translateToSpanish } from "./utils.js";
+
 export async function createAccounts() {
     const data = await fetch("http://localhost:3000/accounts")
         .then(res => res.json())
@@ -71,9 +73,9 @@ function createListOfAccountCards(accounts) {
         header.classList.add('tile-header');
         icon.classList.add('fas', account.accountType === 'savings' ? 'fa-piggy-bank' : 'fa-wallet');
 
-        balance.textContent = account.balance;
-        number.textContent = account.accountNumber;
-        TypeError.textContent = account.accountType;
+        balance.textContent = formatCurrency(account.balance);
+        number.textContent = accountFormat(account.accountNumber);
+        TypeError.textContent = translateToSpanish(account.accountType);
 
         title.appendChild(balance);
         title.appendChild(number);
