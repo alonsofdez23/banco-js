@@ -9,7 +9,12 @@ async function getTransaction() {
     transactionsList.innerHTML = '';
 
     transactions.slice(-2).reverse().forEach(transaction => {
-        const transactionItem = document.createElement('li');
+        createTransactionCard(transaction, transactionsList)
+    });
+}
+
+function createTransactionCard(transaction, parent) {
+    const transactionItem = document.createElement('li');
         transactionItem.classList.add('transfer');
 
         const transactionSection = document.createElement('section');
@@ -40,8 +45,8 @@ async function getTransaction() {
         transactionSection.appendChild(transactionHeader);
         transactionSection.appendChild(transactionFooter);
         transactionItem.appendChild(transactionSection);
-        transactionsList.appendChild(transactionItem);
-    });
+        
+        parent.appendChild(transactionItem);
 }
 
 getTransaction();
