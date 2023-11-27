@@ -59,7 +59,13 @@ function createListOfAccountCards(accounts) {
     const accountsList = document.querySelector('.tiles');
     accountsList.innerHTML = '';
     accounts.forEach(account => {
-        const card = document.createElement('li');
+        const card = createCard(account);
+        accountsList.appendChild(card);
+    });
+}
+
+function createCard(account) {
+    const card = document.createElement('li');
         const header = document.createElement('header');
         const icon = document.createElement('i');
         const title = document.createElement('h3');
@@ -83,8 +89,8 @@ function createListOfAccountCards(accounts) {
         header.appendChild(title);
         card.appendChild(header);
         card.appendChild(type);
-        accountsList.appendChild(card);
-    });
+
+        return card;
 }
 
 createAccounts();
